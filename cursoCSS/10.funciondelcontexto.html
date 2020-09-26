@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursocss.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">Definición de un estilo en función del contexto</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                    </table>
+                    <div class="contenedorcontenido">
+                        <div class="contenido">
+                            <p>Este otro recurso que provee las hojas de estilo en cascada (css) es la definición de un estilo para un elemento HTML siempre y cuando la misma esté contenida por otro elemento determinado. Sólo en ese caso el estilo para dicha elemento se activará.</p>
+                            <p>Supongamos que queremos que cuando disponemos un texto encerrado por el elemento strong dentro de un párrafo el color del mismo sea verde. Pero si el elemento strong está contenida por el elemento h1 el color debe ser rojo, luego la sintaxis del problema es:</p>
+    <pre class="recuadro">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Problema&lt;/title&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;style&gt;
+    p strong{
+      color:#0000ff;
+    }
+    h1 strong{
+      color:#ff0000;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt;Ac&aacute; tenemos un t&iacute;tulo de nivel uno, luego un bloque con 
+    el elemento strong debe aparecer &lt;strong&gt;as&iacute;&lt;/strong&gt;&lt;/h1&gt;
+    &lt;p&gt;
+    Luego si escribimos un p&aacute;rrafo y encerramos un bloque con el elemento strong 
+    debe aparecer &lt;strong&gt;as&iacute;&lt;/strong&gt;
+    &lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+    <img src="https://www.tutorialesprogramacionya.com/cssya/temarios/imagentema/imagen028.jpg" border="0" alt="estilos en función del contexto"><br>
+    <p>Es importante analizar la sintaxis para la definción de estilos en función del contexto.<br>
+                            Tenemos:</p>
+                            <pre class="recuadro">
+                            p strong{
+                              color:#0000ff;
+                            }
+                            </pre>
+                            <p>Estamos diciendo que todas los bloques de la página que contengan el elemento strong y que estén contenidas por el elemento p (párrafo) se pinten de azul. Si bien hay dos bloques en la página que están encerrados por el elemento strong, solo uno se pinta de color azul, el otro bloque se pinta de color rojo, ya que tenemos:</p>
+                            <pre class="recuadro">
+                            h1 strong{
+                              color:#ff0000;
+                            }
+                            </pre> 
+                            <p>Es decir, activar el color rojo para el contenido encerrado por el elemento strong, siempre y cuando se encuentre contenido por el elemento h1.<br>
+                            No confundir con la sintaxis para definir reglas de estilo a dos elementos que se hace separando por coma los elementos HTML:</p>
+                            <pre class="recuadro">
+                            h1,strong{
+                              color:#ff0000;
+                            }
+                            </pre>
+                            <p>Es decir que el texto contenido por los elementos h1 y strong deben aparecer de color rojo.</p>
+                            
+                            <p>Se pueden definir estilos en función del contexto, con mayor precisión, como por ejemplo:</p>
+                            <pre class="recuadro">
+                            div h1 em {
+                                        color:#ff0000;
+                            }
+                            </pre>
+                            <p>Con esto estamos diciendo que se debe pintar de color rojo el texto contenido por el elemento em siempre y cuando esté contenida en un elemento h1 y esta a su vez dentro de un div.</p>
+                            <p>La página completa queda codificada de la siguiente forma:</p>
+    <pre class="recuadro">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Problema&lt;/title&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;style&gt;
+    div h1 em {
+      color:#ff0000;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;div&gt;
+    &lt;h1&gt;Este es un titulo de nivel 1 dentro de un &lt;em&gt;div&lt;/em&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;Este es un titulo de nivel 1 fuera de un &lt;em&gt;div&lt;/em&gt;&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>
+                            <img src="https://www.tutorialesprogramacionya.com/cssya/temarios/imagentema/imagen029.jpg" border="0" alt="estilos en función del contexto"><br>
+                            <div>
+                        </div>
+                            
+                        <div class="atras">
+                            <h2><a href="../html/cursocss.html">Retornar</a></h2>  
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

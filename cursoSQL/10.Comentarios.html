@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursohtml.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">¿Qué es HTML?</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                        
+                    </table>
+    
+                    <div class="contenedorcontenido">
+                        <p>Para aclarar algunas instrucciones, en ocasiones, necesitamos agregar comentarios.<br>
+                            Es posible ingresar comentarios en la línea de comandos, es decir, un texto que no se ejecuta; para ello se emplean dos guiones (--) al comienzo de la línea:</p>
+                            <pre class="recuadro">
+                             select * from libros --mostramos los registros de libros; 
+                            </pre>
+                            <p>en la línea anterior, todo lo que está luego de los guiones (hacia la derecha) no se ejecuta.</p>
+                            
+                            <p>Para agregar varias líneas de comentarios, se coloca una barra seguida de un asterisco (/*) al comienzo del bloque de comentario y al finalizarlo, un asterisco seguido de una barra (*/).</p>
+                            <pre class="recuadro">
+                             select titulo, autor 
+                             /*mostramos títulos y
+                             nombres de los autores*/
+                             from libros;
+                            </pre>
+                            <p>todo lo que está entre los símbolos "/*" y "*/" no se ejecuta.</p>
+                            
+                            
+                            <h3>Servidor de SQL Server instalado en forma local.</h3>
+                            <p>Ingresemos el siguiente lote de comandos en el SQL Server Management Studio:</p>
+                            <pre class="recuadro">
+                            if object_id('libros') is not null
+                              drop table libros;
+                            
+                            create table libros(
+                              titulo varchar(30),
+                              autor varchar(20),
+                              editorial varchar(15)
+                            );
+                            
+                            go
+                            
+                            insert into libros (titulo,autor,editorial)
+                              values ('El aleph','Borges','Emece');
+                            
+                            select * from libros --mostramos los registros de libros; 
+                            
+                            select titulo, autor 
+                             /*mostramos títulos y
+                             nombres de los autores*/
+                              from libros;
+                            </pre>
+                            
+                            <p>Tenemos como resultado:</p>
+                            <p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto026.jpg   " border="0" alt="SQL Server Management Studio comentarios de línea y bloque"></p></div>
+                    </div>    
+                        <div class="atras">
+                            <h2><a href="../html/cursosql.html">Retornar</a></h2>  
+                        </div>      
+                    </div>
+            </div>
+            
+        </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

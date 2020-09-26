@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursohtml.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">Crear una tabla (create table - sp_tables - sp_columns - drop table)</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                        
+                    </table>
+    
+                    <div class="contenedorcontenido">
+                        <p>Una base de datos almacena su información en tablas.</p>
+<p>Una tabla es una estructura de datos que organiza los datos en columnas y filas; cada columna es un campo (o atributo) y cada fila, un registro. La intersección de una columna con una fila, contiene un dato específico, un solo valor.</p>
+<p>Cada registro contiene un dato por cada columna de la tabla.<br>
+Cada campo (columna) debe tener un nombre. El nombre del campo hace referencia a la información que almacenará.<br>
+Cada campo (columna) también debe definir el tipo de dato que almacenará.</p>
+
+<p>Las tablas forman parte de una base de datos.</p>
+<p>Nosotros trabajaremos con la base de datos llamada wi121505_bd1 (este nombre se debe a que la empresa de hosting es la que lo define), que ya he creado en el servidor.</p>
+
+<p>Para ver las tablas existentes creadas por los usuarios en una base de datos usamos el procedimiento almacenado "sp_tables @table_owner='dbo';":</p>
+<pre class="recuadro">
+exec sp_tables @table_owner='dbo';
+</pre>
+<p>El parámetro @table_owner='dbo' indica que solo muestre las tablas de usuarios y no las que crea el SQL Server para administración interna.</p>
+<p>Finalizamos cada comando con un punto y coma.</p>
+<p>Al crear una tabla debemos resolver qué campos (columnas) tendrá y que tipo de datos almacenarán cada uno de ellos, es decir, su estructura.</p>
+
+<p>La sintaxis básica y general para crear una tabla es la siguiente:</p>
+<pre class="recuadro">
+ create table NOMBRETABLA(
+  NOMBRECAMPO1 TIPODEDATO,
+  ...
+  NOMBRECAMPON TIPODEDATO
+ );
+</pre>
+<p>La tabla debe ser definida con un nombre que la identifique y con el cual accederemos a ella.</p>
+<p>Creamos una tabla llamada "usuarios" y entre paréntesis definimos los campos y sus tipos:</p>
+<pre class="recuadro">
+ create table usuarios (
+  nombre varchar(30),
+  clave varchar(10)
+ );
+</pre>
+<p>Cada campo con su tipo debe separarse con comas de los siguientes, excepto el último.</p>
+
+<p>Cuando se crea una tabla debemos indicar su nombre y definir al menos un campo con su tipo de dato. En esta tabla "usuarios" definimos 2 campos:</p>
+<ul>
+<li>
+  nombre: que contendrá una cadena de caracteres de 30 caracteres de longitud, que almacenará el nombre de usuario y
+</li>
+<li>
+  clave: otra cadena de caracteres de 10 de longitud, que guardará la clave de cada usuario.</li>
+</ul>
+<p>Cada usuario ocupará un registro de esta tabla, con su respectivo nombre y clave.</p>
+
+<p>Para nombres de tablas, se puede utilizar cualquier caracter permitido para nombres de directorios, el primero debe ser un caracter alfabético y no puede contener espacios. La longitud máxima es de 128 caracteres.</p>
+
+<p>Si intentamos crear una tabla con un nombre ya existente (existe otra tabla con ese nombre), mostrará un mensaje indicando que ya hay un objeto llamado 'usuarios' en la base de datos y la sentencia no se ejecutará. Esto es muy importante ya que cuando haga los ejercicios en este sitio puede haber otra persona que haya creado una tabla con el nombre que usted especifique.</p>
+
+<p>Para ver la estructura de una tabla usamos el procedimiento almacenado "sp_columns" junto al nombre de la tabla:</p>
+<pre class="recuadro">
+exec sp_columns usuarios;
+</pre>
+<p>aparece mucha información que no analizaremos en detalle, como el nombre de la tabla, su propietario, los campos, el tipo de dato de cada campo, su longitud, etc.:</p>
+<pre class="recuadro"> 
+...COLUMN_NAME	TYPE_NAME	LENGHT
+_______________________________________
+   nombre	varchar		30	
+   clave	varchar		10
+</pre>
+<p>Para eliminar una tabla usamos "drop table" junto al nombre de la tabla a eliminar:</p>
+<pre class="recuadro">
+ drop table usuarios;
+</pre>
+<p>Si intentamos eliminar una tabla que no existe, aparece un mensaje de error indicando tal situación y la sentencia no se ejecuta. Para evitar este mensaje podemos agregar a la instrucción lo siguiente: </p>
+<pre class="recuadro">
+ if object_id('usuarios') is not null
+  drop table usuarios;
+</pre>
+<p>En la sentencia precedente especificamos que elimine la tabla "usuarios" si existe.</p>
+
+
+<h3>Servidor de SQL Server instalado en forma local.</h3>
+<p>Si ha instalado el servidor de SQL Server en forma local en su computadora debe ingresar al SQL Server Management Studio:</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto006.jpg" border="0" alt="SQL Server Management Studio ejecución"></p>
+<p>Debemos crear por única vez la base de datos donde haremos todos los ejercicios de este curso de SQL Server, para esto utilizamos el comando SQL:</p>
+<pre class="recuadro">
+create database bd1;
+</pre>
+<p>Para poder ejecutar el comando 'create database' debemos abrir una ventana mediante la opción "New Query":</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto008.jpg" border="0" alt="SQL Server Management Studio new query"></p>
+<p>Ahora si creamos la base de datos llamada 'bd1':</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto009.jpgg" border="0" alt="SQL Server Management Studio create database"></p>
+<p>Para que se ejecute el comando 'create database' que acabamos de escribir debemos presionar el botón "Execute", en el caso que no haya errores se nos informará que la base de datos 'bd1' se ha creado en forma correcta:</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto010.jpg" border="0" alt="SQL Server Management Studio create database"></p>
+<p>En el lado izquierdo del SSMS aparece el 'Object Explorer' donde podemos ver todas las bases de datos existentes en nuestro servidor local de SQL Server, para que se actualice debemos presionar el botón derecho del mouse sobre el texto 'Databases' y seleccionar la opción 'Refresh'</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto011.jpg" border="0" alt="SQL Server Management Studio create database refresh"></p>
+<p>Luego de refrescar la opción 'Databases' podemos ver que aparece la base de datos 'bd1' que se ha creado en nuestro servidor de base de datos de SQL Server:</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto012.jpg" border="0" alt="SQL Server Management Studio create database refresh"></p>
+<p>Debemos seleccionar esta base de datos 'bd1' para poder ejecutar comandos SQL que afecten dicha base de datos. Cerremos la ventana Query donde ejecutamos el create database y nuevamente elijamos la opción 'New Query', ahora debemos seleccionar la base de datos 'bd1':</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto013.jpg" border="0" alt="SQL Server Management Studio selección de base de datos"></p>
+<p>Creemos ahora la tabla 'usuarios' en la base de datos 'bd1':</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto014.jpg" border="0" alt="SQL Server Management Studio create table"></p>
+<p>Si refrescamos el "Object Explorer" podemos ver ahora la base de datos 'bd1' tiene una tabla llamada 'usuarios':</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto014.jpg" border="0" alt="SQL Server Management Studio Object Explorer"></p>
+<p>Probemos ahora ejecutar el procedimiento almacenado 'sp_tables' que nos muestra todas las tablas que hemos creado (el resultado es idéntico al que nos muestra el Object Explorer):</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto016.jpg" border="0" alt="SQL Server Management Studio sp_tables"></p>
+
+<p>El programa SQL Server Management Studio nos ayuda en muchas situaciones para evitar tener que llamar a comandos SQL o procedimientos almacenados como sp_tables (es más fácil ver el Object Explorer directamente para conocer las tablas contenidas en una base de datos)</p>
+
+<p>Mediante el SQL Server Management Studio podemos ejecutar un lote de comandos SQL de una sola vez, probemos de copiar el siguiente bloque de comandos SQL y ejecutarlos:</p>
+<pre class="recuadro">
+if object_id('usuarios') is not null
+  drop table usuarios;
+
+create table usuarios (
+  nombre varchar(30),
+  clave varchar(10)
+);
+
+exec sp_tables @table_owner='dbo';
+
+exec sp_columns usuarios;
+
+drop table usuarios;
+
+exec sp_tables @table_owner='dbo';
+</pre>
+<p>Podemos ver que todos los comandos SQL se ejecutan en forma secuencial:</p>
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto017.jpg" border="0" alt="SQL Server Management Studio lote de comandos"></p></div>
+                    </div>    
+                        <div class="atras">
+                            <h2><a href="../html/cursosql.html">Retornar</a></h2>  
+                        </div>      
+                    </div>
+            </div>
+            
+        </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

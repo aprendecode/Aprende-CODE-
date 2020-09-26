@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursocss.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">Herencia de propiedades de estilo</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                    </table>
+                    <div class="contenedorcontenido">
+                        <div class="contenido">
+                        </div> 
+
+                        <p>Ahora veremos que el conjunto de elementos HTML forman en sí un árbol que en su raiz podemos identificar el elemento body del cual se desprenden otros elementos contenidas en esta sección, como podrían ser los elementos h1,h2,h3,h4,h5,h6,p,div luego estas en su interior contienen otros elementos HTML como podrían ser em,strong,pre etc.</p>
+                        <p>Con ejemplos veamos que hay muchos estilos que se heredan (todos los vistos hasta el momento se heredan), es decir si definimos la propiedad color para el elemento h1, luego si dicho elemento incorpora un texto con el elemento "em" en su interior, la propiedad color del elemento "em" tendrá el mismo valor que la propiedad h1 (es decir el elemento em hereda las propiedades del elemento h1)</p>
+                        <p>Con un ejemplo veremos el resultado de la herencia de propiedades entre los elementos HTML:</p>
+ <pre class="recuadro">
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Problema&lt;/title&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;style&gt;
+    body {
+      color:#0000ff;
+      font-family:verdana;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt;Este es un t&iacute;tulo de nivel 1 y con el elemento 'em' la palabra: 
+    &lt;em&gt;Hola&lt;/em&gt;&lt;/h1&gt;
+    &lt;p&gt;Todo este p&aacute;rrafo debe ser de color azul ya que lo hereda del 
+    elemento body.&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+                        <img src="imagentema/imagen026.jpg" border="0" alt="herencia en propiedades de estilo"><br>
+                        <p>En este ejemplo hemos definido la siguiente regla para el elemento body:</p>
+                        <pre class="recuadro">
+    body {
+      color:#0000ff;
+      font-family:verdana;
+    }
+    </pre>
+                        <p>Inicializamos la propiedad color con el valor de azul y la fuente de tipo verdana. Con esto todos los elementos contenidas en el body que no redefinan estas dos propiedades recibirán los valores aquí definidos. En este ejemplo la cabecera de primer nivel es decir h1 y el párrafo tienen como color el azul y la fuente es de tipo verdana.</p>
+                        
+                        <p>Ahora bien en muchas situaciones podemos redefinir propiedades para elementos contenidos, veamos como podemos hacer que el texto contenido en los elementos em y p aparezcan de color distinto:</p>
+                        <pre class="recuadro">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Problema&lt;/title&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;style&gt;
+    body {
+      color:#0000ff;
+      font-family:verdana;
+    }
+    em {
+      color:#008800;
+    }
+    p {
+      color:#999999;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;h1&gt;Este es un t&iacute;tulo de nivel 1 y con el elemento 'em' la palabra: 
+    &lt;em&gt;Hola&lt;/em&gt;&lt;/h1&gt;
+    &lt;p&gt;Todo este p&aacute;rrafo debe ser de color gris ya que lo redefine la 
+    marca p y no lo hereda de la marca body.&lt;/p&gt;
+    &lt;/html&gt;
+    </pre>
+                        <img src="https://www.tutorialesprogramacionya.com/cssya/temarios/imagentema/imagen027.jpg" + alt="herencia en propiedades de estilo"><br>
+                        <p>Ahora hemos definido tres reglas, la primera igual que el problema anterior, define la propiedad color en azul y la fuente de tipo verdana para el elemento body:</p>
+                        <pre class="recuadro">
+                        body {
+                          color:#0000ff;
+                          font-family:verdana;
+                        }
+                        </pre>
+                        <p>La segunda regla define la propiedad color en verde para el elemento em, con esto no heredará el color azul del elemento body (que es el elemento padre):</p>
+                        <pre  class="recuadro">
+                        em {
+                          color:#008800;
+                        }
+                        </pre>
+                        <p>Algo similar hacemos con el elemento p para indicar que sea de color gris:</p>
+                        <pre  class="recuadro">
+                        p {
+                          color:#999999;
+                        }
+                        </pre>
+                        <p>Pero podemos ver que todas los elementos heredan la fuente verdana ya que ninguna lo sobreescribe. </p>
+                        </div>
+
+                            
+                        <div class="atras">
+                            <h2><a href="../html/cursocss.html">Retornar</a></h2>  
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

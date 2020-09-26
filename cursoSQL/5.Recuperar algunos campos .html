@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursohtml.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">Recuperar algunos campos (select)</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                        
+                    </table>
+    
+                    <div class="contenedorcontenido">
+                        <p>Hemos aprendido cómo ver todos los registros de una tabla, empleando la instrucción "select".</p>
+<p>La sintaxis básica y general es la siguiente:</p>
+<pre class="recuadro">
+ select * from NOMBRETABLA;
+</pre>
+<p>El asterisco (*) indica que se seleccionan todos los campos de la tabla.</p>
+
+<p>Podemos especificar el nombre de los campos que queremos ver separándolos por comas:</p>
+<pre class="recuadro">
+ select titulo,autor from libros; 
+</pre>
+<p>La lista de campos luego del "select" selecciona los datos correspondientes a los campos nombrados. En el ejemplo anterior seleccionamos los campos "titulo" y "autor" de la tabla "libros", mostrando todos los registros. Los datos aparecen ordenados según la lista de selección, en dicha lista los nombres de los campos se separan con comas.</p>
+
+
+<h3>Servidor de SQL Server instalado en forma local.</h3>
+<p>Ingresemos el siguiente lote de comandos en el SQL Server Management Studio:</p>
+<pre class="recuadro">
+-- borramos la tabla libros si ya existe
+if object_id('libros') is not null
+  drop table libros;
+
+-- creamos la tabla libros
+create table libros(
+  titulo varchar(40),
+  autor varchar(30),
+  editorial varchar(15),
+  precio float,
+  cantidad integer
+);
+
+-- llamamos al procedimiento almacenado sp_columns para conocer los campos
+-- de la tabla libros
+exec sp_columns libros;
+
+-- insertamos varias filas en la tabla libros
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('El aleph','Borges','Emece',25.50,100);
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('Alicia en el pais de las maravillas','Lewis Carroll','Atlantida',10,200);
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('Matematica estas ahi','Paenza','Siglo XXI',18.8,200);
+
+-- recuperamos todas los datos de la tabla libros
+select * from libros;
+
+-- recuperamos solo el titulo, autor y editorial de la tabla libros
+select titulo,autor,editorial from libros; 
+
+-- recuperamos el titulo y el precio
+select titulo,precio from libros;
+
+-- recuperamos la editorial y la cantidad
+select editorial,cantidad from libros; 
+</pre>
+<p>Para disponer un comentario y que no lo tenga en cuenta el servidor SQL Server debemos anteceder los caracteres --</p>
+<p>Es bueno comentar los algoritmos que implementamos sobre todo aquellos que sean complejos de entender.</p>
+<p>Cuando ejecutamos este lote de comandos SQL tenemos como resultado:</p>
+
+<p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto021.jpg" border="0" alt="SQL Server Management Studio "></p>
+
+
+<h3>Comando "go" del "SQL Server Management Studio"</h3>
+<p>Cuando tenemos un lote de comandos SQL y necesitamos particionarlo en distintos sublotes debemos utilizar el comando "go", no es un comando SQL sino un comando propio del "SQL Server Management Studio":</p>
+
+<pre class="recuadro">
+-- borramos la tabla libros si ya existe
+if object_id('libros') is not null
+  drop table libros;
+
+-- creamos la tabla libros
+create table libros(
+  titulo varchar(40),
+  autor varchar(30),
+  editorial varchar(15),
+  precio float,
+  cantidad integer
+);
+
+go
+
+-- llamamos al procedimiento almacenado sp_columns para conocer los campos
+-- de la tabla libros
+exec sp_columns libros;
+
+-- insertamos varias filas en la tabla libros
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('El aleph','Borges','Emece',25.50,100);
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('Alicia en el pais de las maravillas','Lewis Carroll','Atlantida',10,200);
+insert into libros (titulo,autor,editorial,precio,cantidad)
+  values ('Matematica estas ahi','Paenza','Siglo XXI',18.8,200);
+
+-- recuperamos todas los datos de la tabla libros
+select * from libros;
+
+-- recuperamos solo el titulo, autor y editorial de la tabla libros
+select titulo,autor,editorial from libros; 
+
+-- recuperamos el titulo y el precio
+select titulo,precio from libros;
+
+-- recuperamos la editorial y la cantidad
+select editorial,cantidad from libros; 
+</pre>
+<p>No disponemos punto y coma después de "go". Logramos que primer se ejecuten en la primera conexión con el servidor SQL Server los dos primeros comandos y en la segunda conexión el resto de los comandos.</p></div>
+
+                    </div>    
+                        <div class="atras">
+                            <h2><a href="../html/cursosql.html">Retornar</a></h2>  
+                        </div>      
+                    </div>
+            </div>
+            
+        </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

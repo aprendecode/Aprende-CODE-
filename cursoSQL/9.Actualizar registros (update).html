@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="iconos/code_coding_programming_browser_icon_124774.ico" type="image/x-ico">
+    <title>Aprende < CODE > </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Bebas+Neue&family=Coda&family=Unica+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2290d04905.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/encabezado.css">
+    <link rel="stylesheet" href="../css/formato.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/estilocursos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div>
+            <a class="titulo1"
+             href="../index.html"><h1>    Aprende   < CODE > </h1></a>
+             <p class="formación">
+                Cursos de formación online gratuita
+            </p>
+        </div>
+    </header>
+    <div class="formato">
+        <div class="contenedorglobal">
+            <div class="fondo">
+                <div class="contenedortitulo">
+                    <table>
+                        <tr>
+                            <td class="temario"><nav class="cajacursos"><a href="../html/cursohtml.html">Temario</a></td></nav>
+                            <td><h2 class="titulos2">Actualizar registros (update)</h2></td>
+                            <td class="paginacursos"><nav class="cajacursos"><a href="../html/curso.html">Listado de Cursos</a></nav></td>
+                        </tr>
+                        
+                    </table>
+    
+                    <div class="contenedorcontenido">
+                        <p>Decimos que actualizamos un registro cuando modificamos alguno de sus valores.</p>
+
+                        <p>Para modificar uno o varios datos de uno o varios registros utilizamos "update" (actualizar).</p>
+                        
+                        <p>Por ejemplo, en nuestra tabla "usuarios", queremos cambiar los valores de todas las claves, por "RealMadrid":</p>
+                        <pre class="recuadro">
+                         update usuarios set clave='RealMadrid';
+                        </pre>
+                        <p>Utilizamos "update" junto al nombre de la tabla y "set" junto con el campo a modificar y su nuevo valor.</p>
+                        <p>El cambio afectará a todos los registros.</p>
+                        
+                        <p>Podemos modificar algunos registros, para ello debemos establecer condiciones de selección con "where".<br>
+                        Por ejemplo, queremos cambiar el valor correspondiente a la clave de nuestro usuario llamado "Federicolopez", queremos como nueva clave "Boca", necesitamos una condición "where" que afecte solamente a este registro:</p>
+                        <pre class="recuadro">
+                         update usuarios set clave='Boca'
+                          where nombre='Federicolopez';
+                        </pre>
+                        <p>Si Microsoft SQL Server no encuentra registros que cumplan con la condición del "where", no se modifica ninguno.</p>
+                        
+                        <p>Las condiciones no son obligatorias, pero si omitimos la cláusula "where", la actualización afectará a todos los registros.</p>
+                        
+                        <p>También podemos actualizar varios campos en una sola instrucción:</p>
+                        <pre class="recuadro">
+                         update usuarios set nombre='Marceloduarte', clave='Marce'
+                          where nombre='Marcelo';
+                        </pre>
+                        <p>Para ello colocamos "update", el nombre de la tabla, "set" junto al nombre del campo y el nuevo valor y separado por coma, el otro nombre del campo con su nuevo valor.</p>
+                        
+                        
+                        <h3>Servidor de SQL Server instalado en forma local.</h3>
+                        <p>Ingresemos el siguiente lote de comandos en el SQL Server Management Studio:</p>
+                        <pre class="recuadro">
+                        if object_id('usuarios') is not null
+                          drop table usuarios;
+                        
+                        create table usuarios(
+                          nombre varchar(20),
+                          clave varchar(10)
+                        );
+                        
+                        go
+                        
+                        insert into usuarios (nombre,clave)
+                          values ('Marcelo','River');
+                        insert into usuarios (nombre,clave)
+                          values ('Susana','chapita');
+                        insert into usuarios (nombre,clave)
+                          values ('Carlosfuentes','Boca');
+                        insert into usuarios (nombre,clave)
+                          values ('Federicolopez','Boca');
+                        
+                        update usuarios set clave='RealMadrid';
+                        
+                        select * from usuarios;
+                        
+                        update usuarios set clave='Boca'
+                          where nombre='Federicolopez';
+                        
+                        select * from usuarios;
+                        
+                        update usuarios set clave='payaso'
+                          where nombre='JuanaJuarez';
+                        
+                        select * from usuarios;
+                        
+                        update usuarios set nombre='Marceloduarte', clave='Marce'
+                          where nombre='Marcelo';
+                        
+                        select * from usuarios;
+                        </pre>
+                        
+                        <p>Tenemos como resultado:</p>
+                        <p><img src="https://www.tutorialesprogramacionya.com/sqlserverya/temarios/imagentema/foto025.jpg" border="0" alt="SQL Server Management Studio update"></p></div>
+                    </div>    
+                        <div class="atras">
+                            <h2><a href="../html/cursosql.html">Retornar</a></h2>  
+                        </div>      
+                    </div>
+            </div>
+            
+        </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
